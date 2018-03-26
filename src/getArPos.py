@@ -33,7 +33,7 @@ class ar2pnt:
 
     def stateCb(self,data):
         self.status = data.data
-        rospy.loginfo(self.status)
+        # rospy.loginfo(self.status)
 
     def arCb(self,data):
         artag = data
@@ -44,7 +44,7 @@ class ar2pnt:
             y = artag.markers[0].pose.pose.position.y
             z = artag.markers[0].pose.pose.position.z
             self.pnt = [x,y,z]
-            rospy.loginfo([x,y,z])
+            # rospy.loginfo([x,y,z])
 
     def markerCb(self,data):
         if self.pnt:
@@ -98,7 +98,6 @@ class ar2pnt:
         cv2.namedWindow("Converted Image",cv2.WINDOW_NORMAL)
         cv2.resizeWindow("Converted Image",320,240)
         cv2.imshow("Converted Image",img_original)
-        cv2.waitKey(3)
 
 
 

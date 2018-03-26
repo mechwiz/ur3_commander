@@ -35,22 +35,22 @@ class move2pnt:
         pose_target.position.y = data.y
         pose_target.position.z = data.z
 
-        self.group.clear_pose_targets()
-        self.group.set_start_state_to_current_state()
-        self.group.set_pose_target(pose_target)
         self.statepub.publish(1)
+        self.group.clear_pose_targets()
+        self.group.set_pose_target(pose_target)
+        self.group.set_start_state_to_current_state()
         plan1 = self.group.plan()
         rospy.sleep(0.5)
         if self.status == 3:
-            print "============ Waiting while RVIZ displays plan1..."
+            rospy.loginfo("============ Waiting while RVIZ displays plan...")
             rospy.sleep(5)
             self.group.execute(plan1)
-            print "============ Waiting while Robot executes plan1..."
+            rospy.loginfo("============ Waiting while Robot executes plan...")
             rospy.sleep(5)
             self.status = 0
             self.statepub.publish(self.status)
         elif self.status == 4:
-            print "============ Plan out of reach..."
+            rospy.loginfo("============ Plan out of reach...")
             rospy.sleep(2)
             self.status = 0
             self.statepub.publish(self.status)
