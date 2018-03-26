@@ -8,26 +8,33 @@ from moveit_msgs.msg import MoveGroupActionFeedback
 from std_msgs.msg import Int8
 
 class move2pnt:
+    # Initialize class
     def __init__(self):
+        # setup movie commander
         moveit_commander.roscpp_initialize(sys.argv)
+        # setup robot, scene, and move group
         self.robot = moveit_commander.RobotCommander()
         self.scene = moveit_commander.PlanningSceneInterface()
         self.group = moveit_commander.MoveGroupCommander('manipulator')
+        # setup some configs
         self.group.set_goal_position_tolerance(0.05)
         self.group.set_planner_id('RRTConnectkConfigDefault')
         self.group.set_planning_time(5)
         self.group.set_num_planning_attempts(5)
+        # set status to ready
         self.status = 0
+
+        # Publishers and subscribers
         self.sub = rospy.Subscriber('ar_point',Point,self.pntCb)
         self.statsub = rospy.Subscriber('/move_group/feedback',MoveGroupActionFeedback,self.stateCb)
         self.statepub = rospy.Publisher('robot_state',Int8,queue_size=10)
 
-
+    # Get the current status of the move_group
     def stateCb(self,data):
         self.status = data.status.status
         self.statepub.publish(self.status)
 
-
+    # Move to the received position if possible
     def pntCb(self,data):
         pose_target = Pose()
         pose_target.orientation.w = 1.0
