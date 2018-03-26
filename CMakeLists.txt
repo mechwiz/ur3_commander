@@ -11,6 +11,24 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  genmsg
+  tf
+  tf2
+  image_transport
+  resource_retriever
+  cv_bridge
+  pcl_ros
+  pcl_conversions
+  message_generation
+  ${MSG_DEPS}
+  dynamic_reconfigure
+  cmake_modules
+  geometry_msgs
+  moveit_core
+  moveit_kinematics
+  moveit_ros_planning
+  pluginlib
+  tf_conversions
 )
 
 ## System dependencies are found with CMake's conventions
