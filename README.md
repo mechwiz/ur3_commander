@@ -76,7 +76,7 @@ This node implements the python moveit_commander module to interact with the mov
 - The RRTConnectkConfigDefault Planner which seems to be a suggest planner to use based off browsing the web
 - A planning time of 5 seconds to give the planner ample time to find solutions
 - The ability to attempt to find a plan 5 times if it fails at first
-- A goal position tolerance of 0.05 meters mainly because we don't need to be so restritive for this demo
+- A goal position tolerance of 0.05 meters mainly because we don't need to be so restrictive for this demo
 
 Once a point is recieved over the `ar_point` topic, the node implements the following steps
  1. Set the new pose message with the new point
