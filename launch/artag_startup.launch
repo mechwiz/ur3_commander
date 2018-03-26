@@ -1,0 +1,11 @@
+<launch>
+
+  <!--- Run usb_cam -->
+  <include file="$(find ur3_commander)/launch/usb_cam-test.launch" />
+
+  <!--- Run ar_track_alvar -->
+  <include file="$(find ur3_commander)/launch/pr2_indiv_no_kinect.launch" />
+
+  <node pkg="ur3_commander" type="getArPos.py" name="getArPos" output="screen" />
+
+</launch>

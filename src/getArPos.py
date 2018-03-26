@@ -47,13 +47,14 @@ class ar2pnt:
             rospy.loginfo([x,y,z])
 
     def markerCb(self,data):
-        newmarker = data
-        newmarker.pose.position.z = self.pnt[2] - self.calb
-        newmarker.type = newmarker.SPHERE
-        newmarker.scale.x = .1
-        newmarker.scale.y = .1
-        newmarker.scale.z = .1
-        self.pubmarker.publish(newmarker)
+        if self.pnt:
+            newmarker = data
+            newmarker.pose.position.z = self.pnt[2] - self.calb
+            newmarker.type = newmarker.SPHERE
+            newmarker.scale.x = .1
+            newmarker.scale.y = .1
+            newmarker.scale.z = .1
+            self.pubmarker.publish(newmarker)
 
     def imagecb(self,data):
         img_original = self.bridge.imgmsg_to_cv2(data, "bgr8")
