@@ -49,7 +49,9 @@
   <!-- Use doc_depend for packages you need only for building documentation: -->
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>roscpp</build_depend>
+  <build_depend>cmake_modules</build_depend>
+  <build_depend>message_generation</build_depend>
+  <!-- <build_depend>roscpp</build_depend>
   <build_depend>rospy</build_depend>
   <build_depend>std_msgs</build_depend>
   <build_export_depend>roscpp</build_export_depend>
@@ -57,9 +59,59 @@
   <build_export_depend>std_msgs</build_export_depend>
   <exec_depend>roscpp</exec_depend>
   <exec_depend>rospy</exec_depend>
-  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend> -->
 
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
 
+  <!-- From ar_track_alvar -->
+  <depend>ar_track_alvar_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>geometry_msgs</depend>
+  <depend>image_transport</depend>
+  <depend>message_runtime</depend>
+  <depend>pcl_ros</depend>
+  <depend>pcl_conversions</depend>
+  <depend>resource_retriever</depend>
+  <depend>sensor_msgs</depend>
+  <depend>tf</depend>
+  <depend>tf2</depend>
+  <depend>tinyxml</depend>
+  <depend>visualization_msgs</depend>
+  <depend>dynamic_reconfigure</depend>
+
+  <!-- From usb_cam -->
+  <depend>std_srvs</depend>
+  <depend>ffmpeg</depend>
+  <depend>camera_info_manager</depend>
+  <depend>v4l-utils</depend>
+
+  <!-- From ur3_moveit_config -->
+  <depend>moveit_ros_move_group</depend>
+  <depend>moveit_planners_ompl</depend>
+  <depend>moveit_ros_visualization</depend>
+  <depend>moveit_fake_controller_manager</depend>
+  <depend>moveit_simple_controller_manager</depend>
+  <depend>joint_state_publisher</depend>
+  <depend>robot_state_publisher</depend>
+  <depend>xacro</depend>
+  <depend>ur_description</depend>
+
+  <!-- From ur_driver -->
+  <depend>actionlib</depend>
+  <depend>control_msgs</depend>
+  <depend>trajectory_msgs</depend>
+  <depend>ur_msgs</depend>
+  <depend>python-lxml</depend>
+
+  <!-- From ur_gazebo -->
+  <depend>gazebo_ros</depend>
+  <depend>gazebo_ros_control</depend>
+  <depend>joint_state_controller</depend>
+  <depend>joint_trajectory_controller</depend>
+  <depend>effort_controllers</depend>
+  <depend>controller_manager</depend>
   <!-- The export tag contains other, unspecified, tags -->
   <export>
     <!-- Other tools can request additional information be placed here -->
