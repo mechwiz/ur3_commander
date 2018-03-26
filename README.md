@@ -99,6 +99,6 @@ Published Topic:
 #### Video
 A video of this package in action is shown below: ![here](imgs/ur3_commander_demo.gif).
 
-#### Trouble shooting
+#### Troubleshooting
 - It may happen that the robot ends up in some convoluted position where no plan can be achieved. If this happens, your best bet is to relaunch the package.
 - An attempt was made to include the [ur_modern_driver](https://github.com/ThomasTimm/ur_modern_driver) by Thomas Timm for better functionality than the current ur_driver in the Universal_Robot package. However, based on reasearch done, it seems like this driver only works when connected to a real robot.
