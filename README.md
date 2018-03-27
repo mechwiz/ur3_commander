@@ -19,7 +19,7 @@ The goal of this project is to control a UR3 robot with webcam input.
 #### Prerequisits
 - Linux running on Ubuntu 16.04 with ROS Kinetic
 - Calibrated webcam. Follow this [tutorial](http://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration) to accomplish this using a checkerboard. Make sure you enter in the right port for your video camera in the usb_cam launch file [here](launch/usb_cam-test.launch).
-- An AR Tag. Print out this [sheet](imgs/artags) and cut out the top left tag.
+- An AR Tag. Print out this [sheet](imgs/artags.png) and cut out the top left tag.
 
 #### Dependencies
 To install this package, first open up a terminal and install moveit.
@@ -42,7 +42,7 @@ All of the required dependencies should be included (Gazebo, Rviz, ar_track_alva
 Note, wait until each of the following launch files have finished starting before running the next one.
 
 - Launch the Gazebo world: `roslaunch ur3_commander ur3.launch limited:=true`
-- Launch the Moveit Setup configs to allow for motion planning: `roslaunch ur3_commander ur3_moveit_planning_execution.launch sim:=true`
+- Launch the Moveit Setup configs to allow for motion planning: `roslaunch ur3_commander ur3_moveit_planning_execution.launch sim:=true limited:=true`
 - Launch Rviz with the motion planning plugin: `roslaunch ur3_commander moveit_rviz.launch config:=true`
     - Note, that the [UR3KinematicsPlugin](config/kinematics.yaml) is used instead of the KDLKinematicsPlugin as it seems to do a better job
 - Launch the computer vision node and setup configs as well as the moveit_commander node `roslaunch ur3_commander artag_startup.launch`
