@@ -50,10 +50,10 @@ class move2pnt:
         rospy.sleep(0.5)
         if self.status == 3:
             rospy.loginfo("============ Waiting while RVIZ displays plan...")
-            rospy.sleep(5)
+            rospy.sleep(1)
             self.group.execute(plan1)
             rospy.loginfo("============ Waiting while Robot executes plan...")
-            rospy.sleep(5)
+            rospy.sleep(1)
             self.status = 0
             self.statepub.publish(self.status)
         elif self.status == 4:
